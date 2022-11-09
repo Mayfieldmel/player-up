@@ -483,3 +483,25 @@ button:hover {
 footer {
 	text-align: center;
 }
+
+
+@media screen and (min-width: 780px) {
+	/* .home-background{
+	  display: none;
+	  
+	}  */
+	/* body {
+		background-color: rgb(54, 89, 74);
+		
+	} */
+	.nav-home {
+		position: relative;
+	}
+	.cork-board {
+		display: inline-flex;
+	}
+	nav {
+		flex-direction: row;
+	}
+	
+}
