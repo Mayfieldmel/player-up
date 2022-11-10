@@ -24,6 +24,9 @@ const resolvers = {
     event: async (parent, { _id }) => {
       return Events.findOne({ _id });
     },
+    eventsByUser: async(parent, {organizerName}) => {      
+        return await Events.find({organizerName})
+   }
   },
   Mutation: {
     addUser: async (parent, args) => {

@@ -96,8 +96,8 @@ export const QUERY_ALL_EVENTS = gql`
 `;
 
 export const QUERY_USER_EVENTS = gql`
-  query events($organizerName: String!) {
-    events(organizerName: $organizerName) {
+  query eventsByUser($organizerName: String!) {
+    eventsByUser(organizerName: $organizerName) {
       _id
       eventName
       description
