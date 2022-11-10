@@ -14,15 +14,12 @@ const Profile = () => {
   const param = location.split("/")[2];
 
   //   Query user or me
-  const { loading, data, refetch } = useQuery(param ? QUERY_USER : QUERY_ME, {
+  const { loading, data } = useQuery(param ? QUERY_USER : QUERY_ME, {
     variables: { username: param },
   });
   const userData = data?.me || data?.user || {};
-  console.log("userData", userData);
   const events = userData?.events || [];
-  console.log("my events", events);
   const commitments = userData?.commitments || [];
-  console.log("my commitments", commitments);
 
   //   use state
   const [commitmentList, setCommitmentList] = useState(false);
@@ -48,45 +45,9 @@ const Profile = () => {
     setEventList(false);
   };
 
-  const closeForm = () => {
-    setAddEventPage(false);
-    setEventList(true);
-    refetch();
-  };
-
   if (loading) {
     return <div>Loading...</div>;
   }
-
-//   function noEvents() {
-//     if (!events.length) {
-//       return (
-		// <div className="center">
-        // <div className="card">
-        //   <div className="text-box">
-        //     <h2>No Events Yet. Post a Game to the Board!</h2>
-        //   </div>
-        // </div>
-		// </div>
-//       );
-//     } else {
-// 		return (<EventList events={events}></EventList>
-// 	}
-//   }
-  
-//   function noCommitments() {
-// 	if (!commitments.length) {
-// 		return (
-// 			<div className="center">
-// 			<div className="card">
-// 			  <div className="text-box">
-// 				<h2>No Commitments Yet. Go sign up for an Event!</h2>
-// 			  </div>
-// 			</div>
-// 			</div>
-// 		  );
-// 	}
-//   }
 
   return (
     <section className="cork-board">
@@ -126,7 +87,7 @@ const Profile = () => {
           )}
           </>
       ) : (
-        <AddEvent closeForm={closeForm}></AddEvent>
+        <AddEvent></AddEvent>
       )}
     </section>
   );

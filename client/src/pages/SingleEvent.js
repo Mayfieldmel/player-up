@@ -6,7 +6,7 @@ import { Link, useHistory } from "react-router-dom";
 // import Auth from "../utils/auth";
 import { useQuery, useMutation } from "@apollo/client";
 import { QUERY_SINGLE_EVENTS, QUERY_ME } from "../utils/queries";
-import { ADD_PLAYER } from "../utils/mutations";
+import { ADD_PLAYER, ADD_COMMITMENT } from "../utils/mutations";
 
 const SingleEvent = () => {
   const { id: eventId } = useParams();
@@ -17,18 +17,30 @@ const SingleEvent = () => {
   console.log("attending", event.attending);
   const { data: myData } = useQuery(QUERY_ME);
   const me = myData?.me || {};
-
+  const history = useHistory();
   const [addPlayer] = useMutation(ADD_PLAYER);
+  const [addCommitment] = useMutation(ADD_COMMITMENT);
+
   const handleAddPlayer = async (id) => {
     try {
-      await addPlayer({
-        variables: { eventID: id },
+      const players = await addPlayer({
+        variables: { eventId: id },
       });
+	  return players
     } catch (e) {
       console.error(e);
     }
   };
-
+  const handleAddCommitment = async (id) => {
+    try {
+      await addCommitment({
+        variables: { eventId: id },
+      });
+      console.log("post-commitment", me)
+    } catch (e) {
+      console.error(e);
+    }
+  };
   const handleEditEvent = async (eventObj) => {
     history.push(`/events/edit/${eventObj._id}`, eventObj);
   };
@@ -83,6 +95,7 @@ const SingleEvent = () => {
 							className="add-player"
 							onClick={() => {
 								handleAddPlayer(event._id);
+								handleAddCommitment(event._id);
 							}}>
 							I'm Game!
 						</button>

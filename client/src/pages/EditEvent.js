@@ -10,9 +10,6 @@ const EditEvent = () => {
 	const history = useHistory();
 	const { state } = useLocation();
 
-	console.log(state);
-
-
   const [eventID, setEventUpdate] = useState({
 			eventId: state._id,
 			eventName: state.eventName,
@@ -28,7 +25,6 @@ const EditEvent = () => {
 	const handleInputChange = (event) => {
 		const { name, value } = event.target;
 		setEventUpdate({ ...eventID, [name]: value });
-		console.log("This is eventID after setEventUpdate", eventID);
 	};
 
 	const [ updateEvent ] = useMutation(UPDATE_EVENT);
@@ -36,7 +32,6 @@ const EditEvent = () => {
 
 	const handleFormSubmit = async (event) => {
 		event.preventDefault();
-		console.log('update')
 
 		try {
 			const { data } = await updateEvent({ variables: { ...eventID } });
@@ -51,8 +46,9 @@ const EditEvent = () => {
 					numberPlayersNeeded: data.updateEvent.numberPlayersNeeded,
 					organizerName: data.updateEvent.organizerName,
 				});		
-
-				history.push('/events')
+				
+				history.push('/profile')
+				window.location.reload()
 
 			}
 		} catch (err) {
@@ -63,7 +59,6 @@ const EditEvent = () => {
 	const handleRemoveEvent = async (event, eventId) => {
 		event.preventDefault();
 		event.stopPropagation();
-		console.log('delete', eventId);
 
 		try {
 			const { data } = await deleteEvent({ variables: { eventId } });

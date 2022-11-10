@@ -9,7 +9,7 @@ function Event({ event }) {
 				{event.eventName}
 			</h2>
 			<span>
-				{event.time ? formatTime(event.time) : event.tine} | {event.time ? formatDate(event.date) : event.date} <br />
+				{event.time ? formatTime(event.time) : "Loading..."} | {event.time ? formatDate(event.date) : "loading..."} <br />
 				{event.location}
 			</span>
 			{/* <p>Description: {event.description}</p> */}

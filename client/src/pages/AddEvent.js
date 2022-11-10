@@ -4,9 +4,11 @@ import { Form, Button, Alert } from "react-bootstrap";
 import { QUERY_ME } from "../utils/queries";
 import { useMutation, useQuery } from "@apollo/client";
 import { ADD_EVENT } from "../utils/mutations";
+import { useHistory } from 'react-router-dom';
 
-const AddEvent = ({ closeForm }) => {
-	
+const AddEvent = () => {
+	const history = useHistory();
+
 	const [eventFormData, setEventFormData] = useState({
 		eventName: "",
 		description: "",
@@ -48,10 +50,9 @@ const AddEvent = ({ closeForm }) => {
 		try {
 			const { data } = await eventAdd({ variables: { ...eventFormData } });
 			if (data) {
-				closeForm();
+				window.location.reload()
+				history.push("/events")
 			}
-
-			// Auth.login(data.login.token);
 		} catch (err) {
 			console.error(err);
 			setShowAlert(true);
@@ -204,7 +205,7 @@ const AddEvent = ({ closeForm }) => {
 								placeholder={me.username}
 								name="organizerName"
 								onChange={handleInputChange}
-								value={me.username}
+								value={me?.username || ""}
 								disabled={true}
 							/>
 							<Form.Control.Feedback className="feedback" type="invalid">
@@ -224,7 +225,6 @@ const AddEvent = ({ closeForm }) => {
 							}
 							type="submit"
 							variant="success"
-							// onClick={handleClick}>
 								>
 							Post your game!
 						</Button>
