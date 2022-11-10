@@ -9,14 +9,14 @@ function Event({ event }) {
 				{event.eventName}
 			</h2>
 			<span>
-				{formatTime(event.time)} | {formatDate(event.date)} <br />
+				{event.time ? formatTime(event.time) : event.tine} | {event.time ? formatDate(event.date) : event.date} <br />
 				{event.location}
 			</span>
 			{/* <p>Description: {event.description}</p> */}
 			<span>
 				{/* {event.organizerName} | Players needed: {event.numberPlayersNeeded} */}
 				<br />
-				Players attending:{" "}
+				{`Players attending: `}
 				{!event.attending ? "0" : pluralize("player", event.attending.length)}
 			</span>
 		</article>

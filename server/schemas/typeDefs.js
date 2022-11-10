@@ -18,6 +18,7 @@ const typeDefs = gql`
     username: String
     email: String
     events: [Events]
+    commitments: [Events]
   }
 
   type Auth {
@@ -28,7 +29,6 @@ const typeDefs = gql`
   type Query {
     events: [Events]
     event(_id: ID!): Events
-    userEvents(organizerName: String): Events
     me: User
     user(username: String!): User
     users: [User]
@@ -59,8 +59,9 @@ const typeDefs = gql`
       organizerName: String
       attending: [String]
     ): Events
-    deleteEvent(_id: ID!): Events
+    deleteEvent(eventId: ID!): Events
     addPlayer(eventId: ID!): Events
+    addCommitment(eventId: ID!): User
   }
 `;
 

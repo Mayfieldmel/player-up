@@ -19,11 +19,7 @@ const resolvers = {
       return await User.findOne({ username: username }).populate("events");
     },
     events: async () => {
-      return await  Events.find({}).sort({ createdAt: -1 });
-    },
-    userEvents: async (parent, { organizerName }) => {
-      // const params = username ? { username } : {};
-      return Events.find({ organizerName: organizerName }).sort({ createdAt: -1 });
+      return await Events.find({}).sort({ createdAt: -1 });
     },
     event: async (parent, { _id }) => {
       return Events.findOne({ _id });
@@ -56,7 +52,7 @@ const resolvers = {
           { _id: eventId },
           { $addToSet: { attending: context.user._id } },
           { new: true }
-        ).populate('attending');
+        ).populate("attending");
         return updatedEvent;
       }
       throw new AuthenticationError("You need to be logged in!");
@@ -94,13 +90,11 @@ const resolvers = {
       }
       throw new AuthenticationError("You need to be logged in!");
     },
-    updateEvent: async (
-      parent, args,
-      context
-    ) => {
+    updateEvent: async (parent, args, context) => {
       if (context.user) {
         const updatedEvent = await Events.findOneAndUpdate(
-          { _id: args.eventId }, args,
+          { _id: args.eventId },
+          args,
           { new: true, runValidators: true }
         );
         return updatedEvent;
@@ -109,12 +103,23 @@ const resolvers = {
     },
     deleteEvent: async (parent, { eventId }, context) => {
       if (context.user) {
-        const deleteEvent = await Events.delete({ _id: eventId });
+        const deleteEvent = await Events.deleteOne({ _id: eventId });
         const updatedUser = await User.findOneAndUpdate(
           { _id: context.user._id },
           { $pull: { events: { eventId } } },
           { new: true }
         );
+        return updatedUser;
+      }
+      throw new AuthenticationError("You need to be logged in!");
+    },
+    addCommitment: async (parent, { eventId }, context) => {
+      if (context.user) {
+        const updatedUser = await User.findOneAndUpdate(
+          { _id: context.user._id },
+          { $addToSet: { commitments: eventId } },
+          { new: true }
+        ).populate("commitments");
         return updatedUser;
       }
       throw new AuthenticationError("You need to be logged in!");

@@ -1,7 +1,7 @@
 // see SignupForm.js for comments
 import React, { useState, useEffect } from "react";
 import { Form, Button, Alert } from "react-bootstrap";
-import { QUERY_ALL_EVENTS, QUERY_ME } from "../utils/queries";
+import { QUERY_ME } from "../utils/queries";
 import { useMutation, useQuery, useLazyQuery } from "@apollo/client";
 import { ADD_EVENT } from "../utils/mutations";
 
@@ -29,36 +29,6 @@ const AddEvent = ({ closeForm }) => {
 			setShowAlert(false);
 		}
 	}, [error]);
-
-	// refetch code for profile refresh upon submit
-
-	// const emulateFetch = async (_) => {
-	// 	console.log(`Passing ${eventFormData} to fetch`);
-	// 	return new Promise((resolve) => {
-	// 		resolve([{ data: "ok" }]);
-	// 	});
-	// };
-
-	// const handleClick = () => {
-	// 	//manually refetch
-	// 	refetch();
-	// };
-
-	// const { isLoading, refetch } = useQuery(
-	// 	[QUERY_ME, { eventFormData }],
-	// 	emulateFetch,
-	// 	{
-	// 		refetchOnWindowFocus: false,
-	// 		enabled: false, // needed to handle refetch manually
-	// 	}
-	// );
-
-	// if (isLoading) return <div>Loading...</div>;
-	// if (error) return <div>Error: {error}</div>;
-
-	//   finish refetch code
-
-
 
 	const handleInputChange = (event) => {
 		const { name, value } = event.target;

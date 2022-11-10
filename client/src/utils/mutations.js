@@ -47,6 +47,30 @@ export const ADD_PLAYER = gql`
     }
   }
 `;
+
+export const ADD_COMMITMENT = gql`
+  mutation addCommitment($eventId: ID!) {
+    addCommitment(eventId: $eventId) {
+      _id
+      username
+      commitments {
+        _id
+        eventName
+        description
+        date
+        time
+        location
+        numberPlayersNeeded
+        organizerName
+        attending {
+          _id
+          username
+        }
+      }
+    }
+  }
+`;
+
 export const ADD_EVENT = gql`
   mutation addEvent(
 	$eventName: String!, 
@@ -113,9 +137,9 @@ export const UPDATE_EVENT = gql`
   }
 `;
 
-export const REMOVE_EVENT = gql`
-  mutation removeEvent($eventId: ID!) {
-    removeEvent(eventId: $eventId) {
+export const DELETE_EVENT = gql`
+  mutation deleteEvent($eventId: ID!) {
+    deleteEvent(eventId: $eventId) {
       _id
       eventName
       description

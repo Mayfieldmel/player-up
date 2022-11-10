@@ -9,7 +9,7 @@ const NavLoggedIn = ({ titleLocation, param }) => {
   const [homePage, setHomePage] = useState(true);
 
   const location = useLocation()
-console.log(location)
+
 
 	const clickState = () => {
 		setHomePage(false);

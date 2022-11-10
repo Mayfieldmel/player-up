@@ -28,6 +28,10 @@ const userSchema = new Schema(
       type: Schema.Types.ObjectId,
       ref: "Events"
     }],
+    commitments: [{
+      type: Schema.Types.ObjectId,
+      ref: "Events"
+    }],
   },
   {
     toJSON: {

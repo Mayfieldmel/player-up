@@ -368,7 +368,8 @@ button:hover {
 	margin: 0;
 	resize: vertical;
 }
-.loginBtn {
+
+.loginBtn, .editBtn {
 	position: relative;
 	display: flex;
 	top: 10px;
@@ -383,6 +384,21 @@ button:hover {
 	/* box-shadow: 10px 3px 3px greenyellow; */
 }
 
+.deleteBtn {
+	position: relative;
+	display: flex;
+	top: 10px;
+	width: 225px;
+	text-align: center;
+	background-color: rgb(175, 29, 29);
+	border-radius: 10px;
+	margin-top: 10px;
+	font-size: 20px;
+	color: black;
+	opacity: 0.9;
+	justify-content: center;
+	/* box-shadow: 10px 3px 3px greenyellow; */
+}
 .login-background {
 	background-size: cover;
 	background-attachment: fixed;

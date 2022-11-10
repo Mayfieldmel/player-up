@@ -14,9 +14,8 @@ const SingleEvent = () => {
 		variables: { id: eventId },
 	});
 	const event = data?.event || {};
-	// console.log(eventId);
-	// console.log(data);
-	const { myData } = useQuery(QUERY_ME);
+	console.log("attending", event.attending)
+	const { data: myData } = useQuery(QUERY_ME);
 	const me = myData?.me || {};
 
 	const [addPlayer] = useMutation(ADD_PLAYER);
@@ -25,8 +24,6 @@ const SingleEvent = () => {
 			await addPlayer({
 				variables: { eventID: id },
 			});
-			// console.log(me)
-			// console.log(events);
 		} catch (e) {
 			console.error(e);
 		}
@@ -48,8 +45,8 @@ const SingleEvent = () => {
 				<div className="singleEvent">
 					<span>
 						<p>
-							Date: {formatDate(event.date)} <br />
-							Time: {formatTime(event.time)} <br />
+							Date: {event.date ? formatDate(event.date) : event.date} <br />
+							Time: {event.time ? formatTime(event.time) : event.time} <br />
 							<a
 								className="mapLink"
 								href="https://www.google.com/maps/dir/?api=1"

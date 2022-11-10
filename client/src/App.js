@@ -56,12 +56,12 @@ function App() {
                 <Route path="/profile">
                   <Profile />
                 </Route>
+                <Route path="/events/edit/:id">
+                  <EditEvent />
+                </Route>
                 <Route path="/events">
                   <Events />
                 </Route> 
-                <Route path="/event/edit/:id">
-                  <EditEvent />
-                </Route>
                 <Route path="/profile/:username">
                   <Profile />
                 </Route>

@@ -16,16 +16,6 @@ db.once("open", async () => {
       organizerName: "Joe",
     },
     {
-      eventName: "Uno",
-      description:
-        "Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.",
-      date: "2022-12-19",
-      time: "20:00",
-      location: "School Cafeteria",
-      numberPlayersNeeded: "4",
-      organizerName: "Bill",
-    },
-    {
       eventName: "Ultimate Frisbee",
       description:
         "Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.",
@@ -77,35 +67,40 @@ db.once("open", async () => {
     username: "Brian",
     email: "brian@testmail.com",
     password: "password12345",
-    events: []
+    events: [],
+    commitments: []
   });
 
   await User.create({
     username: "Rodolfo",
     email: "rodolfo@testmail.com",
     password: "password12345",
-    events: []
+    events: [],
+    commitments: []
   });
 
   await User.create({
     username: "Melissa",
     email: "melissa@testmail.com",
     password: "password12345",
-    events: []
+    events: [],
+    commitments: []
   });
 
   await User.create({
     username: "Christina",
     email: "christina@testmail.com",
     password: "password12345",
-    events: []
+    events: [],
+    commitments: []
   });
 
   await User.create({
     username: "Morgan",
     email: "morgan@testmail.com",
     password: "password12345",
-    events: []
+    events: [],
+    commitments: []
   });
 
   console.log("users seeded");

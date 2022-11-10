@@ -20,6 +20,20 @@ export const QUERY_USER = gql`
           username
         }
       }
+      commitments {
+        _id
+        eventName
+        description
+        date
+        time
+        location
+        numberPlayersNeeded
+        organizerName
+        attending {
+          _id
+          username
+        }
+      }
     }
   }
 `;
@@ -43,6 +57,20 @@ export const QUERY_ME = gql`
           _id
           username
         }
+        }
+        commitments {
+          _id
+          eventName
+          description
+          date
+          time
+          location
+          numberPlayersNeeded
+          organizerName
+          attending {
+            _id
+            username
+          }
       }
     }
   }
