@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import EventList from "../components/EventList";
 import AddEvent from "./AddEvent";
 import { useLocation } from "react-router-dom";

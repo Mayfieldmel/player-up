@@ -1,6 +1,5 @@
 import React from "react";
 import Event from "./Event";
-import EditEvent from "../pages/EditEvent";
 import { useQuery, useMutation } from "@apollo/client";
 import { QUERY_ME } from "../utils/queries";
 import { ADD_PLAYER, ADD_COMMITMENT } from "../utils/mutations";

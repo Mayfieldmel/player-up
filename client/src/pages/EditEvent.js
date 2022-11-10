@@ -1,5 +1,5 @@
 import { useMutation } from '@apollo/client';
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Form, Button } from "react-bootstrap";
 import { UPDATE_EVENT, DELETE_EVENT } from '../utils/mutations';
 import { useHistory, useLocation } from 'react-router-dom';
@@ -69,7 +69,7 @@ const EditEvent = () => {
 			const { data } = await deleteEvent({ variables: { eventId } });
 	  
 			history.push('/events')
-
+			return data;
 		  } catch (err) {
 			console.error(err);
 		  }
