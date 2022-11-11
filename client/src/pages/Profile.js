@@ -8,7 +8,6 @@ import { QUERY_ME, QUERY_USER } from "../utils/queries";
 // import Auth from "../utils/auth";
 
 const Profile = () => {
-
   // collect params
   const location = useLocation().pathname;
   const param = location.split("/")[2];
@@ -18,25 +17,16 @@ const Profile = () => {
     variables: { username: param },
   });
   const userData = data?.me || data?.user || {};
-<<<<<<< HEAD
-  // console.log("userData", userData);
-  const events = userData?.events || [];
-  // console.log("my events", events);
-  const commitments = userData?.commitments || [];
-  // console.log("my commitments", commitments);
-=======
   const events = userData?.events || [];
   const commitments = userData?.commitments || [];
->>>>>>> 6d7c9ffb6312a9244186c2ec85e1e3ca28b22a10
 
   //   use state
   const [commitmentList, setCommitmentList] = useState(false);
   const [eventList, setEventList] = useState(true);
   const [addEventPage, setAddEventPage] = useState(false);
-  
 
   const displayCommitments = () => {
-	// refetch();
+    // refetch();
     setCommitmentList(true);
     setAddEventPage(false);
     setEventList(false);
@@ -93,7 +83,7 @@ const Profile = () => {
           ) : (
             <EventList events={events}></EventList>
           )}
-          </>
+        </>
       ) : (
         <AddEvent refetch={refetch}></AddEvent>
       )}

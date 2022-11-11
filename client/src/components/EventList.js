@@ -21,16 +21,11 @@ function EventList({ events }) {
       await addPlayer({
         variables: { eventId: id },
       });
-<<<<<<< HEAD
-      // console.log(me)
-      // console.log(events);
-=======
->>>>>>> 6d7c9ffb6312a9244186c2ec85e1e3ca28b22a10
     } catch (e) {
       console.error(e);
     }
   };
-  
+
   const handleAddCommitment = async (id) => {
     try {
       await addCommitment({
@@ -41,23 +36,23 @@ function EventList({ events }) {
     }
   };
 
-
   const handleEditEvent = async (eventObj) => {
     history.push(`/events/edit/${eventObj._id}`, eventObj);
   };
 
   function noEvents(events) {
     if (!events.length) {
-  return (
-    			<div className="center">
-    			<div className="card">
-    			  <div className="text-box">
-    				<h2>No Events Yet!</h2>
-    			  </div>
-    			</div>
-    			</div>
-    		  );
-  }}
+      return (
+        <div className="center">
+          <div className="card">
+            <div className="text-box">
+              <h2>No Events Yet!</h2>
+            </div>
+          </div>
+        </div>
+      );
+    }
+  }
 
   return (
     <ul className="event-list">
@@ -65,10 +60,15 @@ function EventList({ events }) {
       {events.map((eventObj) => (
         <li key={eventObj._id} className="card">
           <Link className="event-link" to={`/event/${eventObj._id}`}>
-          <Event event={eventObj}></Event>
+            <Event event={eventObj}></Event>
           </Link>
           {eventObj.organizerName === me.username ? (
-            <button onClick={() => handleEditEvent(eventObj)} className="play-btn">Edit Game</button>
+            <button
+              onClick={() => handleEditEvent(eventObj)}
+              className="play-btn"
+            >
+              Edit Game
+            </button>
           ) : (
             <button
               className="play-btn"
