@@ -21,6 +21,11 @@ function EventList({ events }) {
       await addPlayer({
         variables: { eventId: id },
       });
+<<<<<<< HEAD
+      // console.log(me)
+      // console.log(events);
+=======
+>>>>>>> 6d7c9ffb6312a9244186c2ec85e1e3ca28b22a10
     } catch (e) {
       console.error(e);
     }

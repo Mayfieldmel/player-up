@@ -48,7 +48,6 @@ const EditEvent = () => {
 				});		
 				
 				history.push('/profile')
-				window.location.reload()
 
 			}
 		} catch (err) {

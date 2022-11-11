@@ -7,14 +7,14 @@ Player UP is a social application designed to organize people with a similar int
 This is a MERN stack application composed of a REACT front end, MongoDB database, and Node.js/Express.js server and API with a GraphQL API built with Apollo Server.   
 
 
-View the Deployed site here: 
+View the Deployed site here: https://playerup2022.herokuapp.com/
 
 
 ## Table of Contents
 
 - [Installation](#installation)
 - [Usage](#usage)
-- [Issues](#issues)
+- [Technology Used](#technology-used)
 - [License](#license)
 - [Contributing](#contributing)
 - [Questions](#questions)
@@ -22,7 +22,7 @@ View the Deployed site here:
 
 ## Installation
 
-
+Coming Soon!
 
 ## Usage
 
@@ -35,10 +35,27 @@ WE want to create a website to find new friends to play with,
 SO THAT we can create “events” and “RSVP” to attend.
 
 
+## Technology Used
 
-## Issues
-
-
+- [MongoDB Atlas](https://www.mongodb.com/cloud/atlas)
+- [Heroku](https://www.heroku.com)
+- [NPM Apollo Client Package](https://www.npmjs.com/package/stripe)
+- [NPM Apollo-Server-Express Package](https://www.npmjs.com/package/apollo-server-express)
+- [NPM GraphQL Package](https://www.npmjs.com/package/graphql)
+- [NPM Bcrypt Package](https://www.npmjs.com/package/bcrypt)
+- [NPM Express.js Package](https://www.npmjs.com/package/express)
+- [NPM JSONWebToken](https://www.npmjs.com/package/jsonwebtoken)
+- [NPM Mongoose Package](https://www.npmjs.com/package/mongoose)
+- [Node.js](https://nodejs.org/en/)
+- [NPM nodemon Package](https://www.npmjs.com/package/nodemon)
+- [NPM JWT-Decode Package](https://www.npmjs.com/package/jwt-decode)
+- [NPM React Package](https://www.npmjs.com/package/react)
+- [NPM React-Bootstrap](https://www.npmjs.com/package/react-bootstrap)
+- [React-Dom](https://www.npmjs.com/package/react-dom)
+- [React-Router-Dom](https://www.npmjs.com/package/react-router-dom)
+- [React-Scripts](https://www.npmjs.com/package/react-scripts)
+- [Google Maps Platform API](https://developers.google.com/maps/documentation/urls/get-started)
+- [Font Awesome](https://fontawesome.com/)
 
 ## License
 
@@ -61,5 +78,5 @@ See more details at https://github.com/Mayfieldmel/player-up or contact __.
 
 Home Page:
 
-<img src= "client/src/images/player-up.png"/>
+<img src= "client/src/images/player-readme.png"/>
 

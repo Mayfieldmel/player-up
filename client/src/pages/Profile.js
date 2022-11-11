@@ -14,12 +14,20 @@ const Profile = () => {
   const param = location.split("/")[2];
 
   //   Query user or me
-  const { loading, data } = useQuery(param ? QUERY_USER : QUERY_ME, {
+  const { loading, data, refetch } = useQuery(param ? QUERY_USER : QUERY_ME, {
     variables: { username: param },
   });
   const userData = data?.me || data?.user || {};
+<<<<<<< HEAD
+  // console.log("userData", userData);
+  const events = userData?.events || [];
+  // console.log("my events", events);
+  const commitments = userData?.commitments || [];
+  // console.log("my commitments", commitments);
+=======
   const events = userData?.events || [];
   const commitments = userData?.commitments || [];
+>>>>>>> 6d7c9ffb6312a9244186c2ec85e1e3ca28b22a10
 
   //   use state
   const [commitmentList, setCommitmentList] = useState(false);
@@ -87,7 +95,7 @@ const Profile = () => {
           )}
           </>
       ) : (
-        <AddEvent></AddEvent>
+        <AddEvent refetch={refetch}></AddEvent>
       )}
     </section>
   );

@@ -14,7 +14,7 @@ const SingleEvent = () => {
     variables: { id: eventId },
   });
   const event = data?.event || {};
-  console.log("attending", event.attending);
+//   console.log("attending", event.attending);
   const { data: myData } = useQuery(QUERY_ME);
   const me = myData?.me || {};
   const history = useHistory();

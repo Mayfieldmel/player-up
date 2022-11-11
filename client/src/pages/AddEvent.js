@@ -6,7 +6,7 @@ import { useMutation, useQuery } from "@apollo/client";
 import { ADD_EVENT } from "../utils/mutations";
 import { useHistory } from 'react-router-dom';
 
-const AddEvent = () => {
+const AddEvent = ({refetch}) => {
 	const history = useHistory();
 
 	const [eventFormData, setEventFormData] = useState({
@@ -50,7 +50,7 @@ const AddEvent = () => {
 		try {
 			const { data } = await eventAdd({ variables: { ...eventFormData } });
 			if (data) {
-				window.location.reload()
+				refetch();
 				history.push("/events")
 			}
 		} catch (err) {
